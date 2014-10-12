@@ -9,8 +9,8 @@ public class Config {
 	private static final Integer port = 3000;
 
 	static {
-		usernameAcademia = "inventto2";
-		passwordAcademia = "tablets!@#";
+		usernameAcademia = "jltafarel@gmail.com";
+		passwordAcademia = "1123581321fibo";
 	}
 
 	public static String getUsernameAcademia() {

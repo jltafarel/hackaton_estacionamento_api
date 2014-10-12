@@ -36,6 +36,10 @@ public class WSClient {
 
 	private static String auth;
 
+	public static void setAuth(String auth_) {
+		auth = auth_;
+	}
+
 	public final static Status criarPerfil(String user, String password, String nome) throws ServiceError {
 
 		List<NameValuePair> params = new ArrayList<NameValuePair>();
@@ -43,7 +47,7 @@ public class WSClient {
 		params.add(new BasicNameValuePair("password", password));
 		params.add(new BasicNameValuePair("nome", nome));
 		try {
-			Result result = postWithParams(Config.getURLService() + "/cadastrar_motorista", params, false);
+			Result result = postWithParams(Config.getURLService() + "/cadastrar_motorista", params, true);
 
 			/* verifica se logou */
 			result.validLogged();
@@ -67,7 +71,7 @@ public class WSClient {
 		params.add(new BasicNameValuePair("descricao", descricao));
 		params.add(new BasicNameValuePair("placa", placa));
 		try {
-			Result result = postWithParams(Config.getURLService() + "/cadastrar_carro", params, false);
+			Result result = postWithParams(Config.getURLService() + "/cadastrar_carro", params, true);
 
 			/* verifica se logou */
 			result.validLogged();
@@ -91,7 +95,7 @@ public class WSClient {
 		params.add(new BasicNameValuePair("user", user));
 		params.add(new BasicNameValuePair("password", password));
 		try {
-			Result result = postWithParams(Config.getURLService() + "/fazer_login", params, false);
+			Result result = postWithParams(Config.getURLService() + "/fazer_login", params, true);
 
 			/* verifica se logou */
 			result.validLogged();
@@ -115,7 +119,7 @@ public class WSClient {
 		params.add(new BasicNameValuePair("id_motorista", String.valueOf(idMotorista)));
 		params.add(new BasicNameValuePair("valor", String.valueOf(valor)));
 		try {
-			Result result = postWithParams(Config.getURLService() + "/add_credito", params, false);
+			Result result = postWithParams(Config.getURLService() + "/add_credito", params, true);
 
 			/* verifica se logou */
 			result.validLogged();
@@ -136,7 +140,7 @@ public class WSClient {
 	public final static Motorista infoMotorista(Long idMotorista) throws ServiceError {
 
 		try {
-			Result result = get(Config.getURLService() + "/info_motorista/" + String.valueOf(idMotorista), false);
+			Result result = get(Config.getURLService() + "/info_motorista/" + String.valueOf(idMotorista), true);
 
 			/* verifica se logou */
 			result.validLogged();
@@ -157,7 +161,7 @@ public class WSClient {
 	public final static Estacionamento checkin(Long idMotorista, Long idCarro) throws ServiceError {
 
 		try {
-			Result result = get(Config.getURLService() + "/checkin/" + String.valueOf(idMotorista) + "/" + String.valueOf(idCarro), false);
+			Result result = get(Config.getURLService() + "/checkin/" + String.valueOf(idMotorista) + "/" + String.valueOf(idCarro), true);
 
 			/* verifica se logou */
 			result.validLogged();
@@ -178,7 +182,7 @@ public class WSClient {
 	public final static Estacionamento checkout(Long idEstacionamento) throws ServiceError {
 
 		try {
-			Result result = get(Config.getURLService() + "/checkout/" + String.valueOf(idEstacionamento), false);
+			Result result = get(Config.getURLService() + "/checkout/" + String.valueOf(idEstacionamento), true);
 
 			/* verifica se logou */
 			result.validLogged();
@@ -199,7 +203,7 @@ public class WSClient {
 	public final static Status consultaCarro(String placa) throws ServiceError {
 
 		try {
-			Result result = get(Config.getURLService() + "/consulta_carro/" + String.valueOf(placa), false);
+			Result result = get(Config.getURLService() + "/consulta_carro/" + String.valueOf(placa), true);
 
 			/* verifica se logou */
 			result.validLogged();

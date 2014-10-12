@@ -10,12 +10,12 @@ public class Estacionamento implements Serializable {
 	private static final long serialVersionUID = 9155279136710191011L;
 	
 	@Expose
-	private Long id;
+	public Long id;
 	
 	@Expose
-	private Timestamp data_inicio;
+	public Timestamp data_inicio;
 	
 	@Expose 
-	private Timestamp data_final;
+	public Timestamp data_final;
 
 }

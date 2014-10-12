@@ -221,7 +221,7 @@ public class WSClient {
 			throw new ServiceError(t);
 		}
 	}
-	
+
 	public final static Statuss consultaSaldo(Long idMotorista) throws ServiceError {
 
 		try {
@@ -242,7 +242,7 @@ public class WSClient {
 			throw new ServiceError(t);
 		}
 	}
-	
+
 	public final static Statuss consultaTempo(Long idMotorista) throws ServiceError {
 
 		try {

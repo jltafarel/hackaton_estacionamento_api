@@ -1,7 +1,7 @@
 package models;
 
 import java.io.Serializable;
-import java.security.Timestamp;
+import java.sql.Timestamp;
 
 import com.google.gson.annotations.Expose;
 

@@ -6,7 +6,8 @@ public class Config {
 	private static String passwordAcademia;
 
 	private static final String host = "http://localhost";
-	private static final Integer port = 3000;
+	private static final String host2 = "http://hackatonestacionamento.herokuapp.com";
+	private static final Integer port = 80;
 
 	static {
 		usernameAcademia = "jltafarel@gmail.com";
@@ -22,7 +23,7 @@ public class Config {
 	}
 
 	public static String getURLService() {
-		return host + (port != null ? ":" + port : "");
+		return host2 + (port != null ? ":" + port : "");
 		// return "http://localhost:8080" + "/academia/rest";
 	}
 

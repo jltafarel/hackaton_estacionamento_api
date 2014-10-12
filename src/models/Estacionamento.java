@@ -13,9 +13,9 @@ public class Estacionamento implements Serializable {
 	public Long id;
 	
 	@Expose
-	public Timestamp data_inicio;
+	public String data_inicio;
 	
 	@Expose 
-	public Timestamp data_final;
+	public String data_final;
 
 }

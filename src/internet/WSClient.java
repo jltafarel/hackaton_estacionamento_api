@@ -13,7 +13,7 @@ import json.GsonParser;
 import models.Estacionamento;
 import models.Motorista;
 import models.Retorno;
-import models.Status;
+import models.Statuss;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpException;
@@ -40,7 +40,7 @@ public class WSClient {
 		auth = auth_;
 	}
 
-	public final static Status criarPerfil(String user, String password, String nome) throws ServiceError {
+	public final static Statuss criarPerfil(String user, String password, String nome) throws ServiceError {
 
 		List<NameValuePair> params = new ArrayList<NameValuePair>();
 		params.add(new BasicNameValuePair("user", user));
@@ -53,7 +53,7 @@ public class WSClient {
 			result.validLogged();
 
 			if (result.isOK()) {
-				Status status = GsonParser.newInstance().fromJson(result.content, Status.class);
+				Statuss status = GsonParser.newInstance().fromJson(result.content, Statuss.class);
 				return status;
 			} else {
 				Retorno retorno = Retorno.fromJSON(result.content);
@@ -65,7 +65,7 @@ public class WSClient {
 		}
 	}
 
-	public final static Status criarCarro(String descricao, String placa, Long idMotorista) throws ServiceError {
+	public final static Statuss criarCarro(String descricao, String placa, Long idMotorista) throws ServiceError {
 
 		List<NameValuePair> params = new ArrayList<NameValuePair>();
 		params.add(new BasicNameValuePair("descricao", descricao));
@@ -78,7 +78,7 @@ public class WSClient {
 			result.validLogged();
 
 			if (result.isOK()) {
-				Status status = GsonParser.newInstance().fromJson(result.content, Status.class);
+				Statuss status = GsonParser.newInstance().fromJson(result.content, Statuss.class);
 				return status;
 			} else {
 				Retorno retorno = Retorno.fromJSON(result.content);
@@ -90,7 +90,7 @@ public class WSClient {
 		}
 	}
 
-	public final static Status fazerLogin(String user, String password) throws ServiceError {
+	public final static Statuss fazerLogin(String user, String password) throws ServiceError {
 
 		List<NameValuePair> params = new ArrayList<NameValuePair>();
 		params.add(new BasicNameValuePair("user", user));
@@ -102,7 +102,7 @@ public class WSClient {
 			result.validLogged();
 
 			if (result.isOK()) {
-				Status status = GsonParser.newInstance().fromJson(result.content, Status.class);
+				Statuss status = GsonParser.newInstance().fromJson(result.content, Statuss.class);
 				return status;
 			} else {
 				Retorno retorno = Retorno.fromJSON(result.content);
@@ -114,7 +114,7 @@ public class WSClient {
 		}
 	}
 
-	public final static Status addCredito(Long idMotorista, Double valor) throws ServiceError {
+	public final static Statuss addCredito(Long idMotorista, Double valor) throws ServiceError {
 
 		List<NameValuePair> params = new ArrayList<NameValuePair>();
 		params.add(new BasicNameValuePair("id_motorista", String.valueOf(idMotorista)));
@@ -126,7 +126,7 @@ public class WSClient {
 			result.validLogged();
 
 			if (result.isOK()) {
-				Status status = GsonParser.newInstance().fromJson(result.content, Status.class);
+				Statuss status = GsonParser.newInstance().fromJson(result.content, Statuss.class);
 				return status;
 			} else {
 				Retorno retorno = Retorno.fromJSON(result.content);
@@ -201,7 +201,7 @@ public class WSClient {
 		}
 	}
 
-	public final static Status consultaCarro(String placa) throws ServiceError {
+	public final static Statuss consultaCarro(String placa) throws ServiceError {
 
 		try {
 			Result result = get(Config.getURLService() + "/consulta_carro/" + String.valueOf(placa), true);
@@ -210,7 +210,7 @@ public class WSClient {
 			result.validLogged();
 
 			if (result.isOK()) {
-				Status status = GsonParser.newInstance().fromJson(result.content, Status.class);
+				Statuss status = GsonParser.newInstance().fromJson(result.content, Statuss.class);
 				return status;
 			} else {
 				Retorno retorno = Retorno.fromJSON(result.content);

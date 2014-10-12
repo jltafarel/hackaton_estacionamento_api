@@ -221,6 +221,27 @@ public class WSClient {
 			throw new ServiceError(t);
 		}
 	}
+	
+	public final static Statuss consultaSaldo(Long idMotorista) throws ServiceError {
+
+		try {
+			Result result = get(Config.getURLService() + "/consulta_saldo/" + String.valueOf(idMotorista), true);
+
+			/* verifica se logou */
+			result.validLogged();
+
+			if (result.isOK()) {
+				Statuss status = GsonParser.newInstance().fromJson(result.content, Statuss.class);
+				return status;
+			} else {
+				Retorno retorno = Retorno.fromJSON(result.content);
+				throw new ServiceError(result.code, retorno.getMensagem());
+			}
+
+		} catch (Throwable t) {
+			throw new ServiceError(t);
+		}
+	}
 
 	private static final Result get(String url, boolean usingBasicAuth) throws URISyntaxException, HttpException, IOException {
 

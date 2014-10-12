@@ -65,11 +65,12 @@ public class WSClient {
 		}
 	}
 
-	public final static Status criarCarro(String descricao, String placa) throws ServiceError {
+	public final static Status criarCarro(String descricao, String placa, Long idMotorista) throws ServiceError {
 
 		List<NameValuePair> params = new ArrayList<NameValuePair>();
 		params.add(new BasicNameValuePair("descricao", descricao));
 		params.add(new BasicNameValuePair("placa", placa));
+		params.add(new BasicNameValuePair("id_motorista", String.valueOf(idMotorista)));
 		try {
 			Result result = postWithParams(Config.getURLService() + "/cadastrar_carro", params, true);
 

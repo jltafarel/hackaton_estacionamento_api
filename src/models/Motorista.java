@@ -22,6 +22,9 @@ public class Motorista implements Serializable {
 	public String nome;
 	
 	@Expose
+	public Double creditos;
+	
+	@Expose
 	public List<Carro> carros;
 	
 	@Expose
